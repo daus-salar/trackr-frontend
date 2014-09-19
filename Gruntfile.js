@@ -8,6 +8,11 @@ module.exports = function (grunt) {
     grunt.initConfig({
         config: config,
 
+        bower: {
+            install: {
+            }
+        },
+      
         jshint: {
             dev: {
                 files: [{
@@ -139,9 +144,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-processhtml');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-bower-task');
 
     grunt.registerTask('dev', ['jshint:dev', 'karma:dev']);
     grunt.registerTask('test', ['jshint', 'karma:test']);
     grunt.registerTask('teamcityTest', ['jshint', 'karma:teamcity']);
     grunt.registerTask('dist', ['clean', 'useminPrepare', 'concat', 'copy', 'requirejs', 'uglify', 'cssmin', 'usemin', 'processhtml']);
+    grunt.registerTask('initEnv', ['bower', 'test', 'dist']);
 };

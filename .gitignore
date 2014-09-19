@@ -12,3 +12,4 @@ reports/
 *.iml
 .idea/
 atlassian-ide-plugin.xml
+lib/
