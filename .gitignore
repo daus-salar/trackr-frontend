@@ -13,3 +13,8 @@ reports/
 .idea/
 atlassian-ide-plugin.xml
 lib/
+/build/
+.project
+.tern-project
+.settings/
+bin/

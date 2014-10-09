@@ -116,6 +116,10 @@ module.exports = function (grunt) {
                 singleRun: true,
                 browsers: ['Chrome', 'Firefox']
             },
+            testContinuesly: {
+                configFile: 'karma.conf.js',
+                singleRun: false
+            },
             test: {
                 configFile: 'karma.conf.js',
                 singleRun: true
@@ -148,6 +152,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('dev', ['jshint:dev', 'karma:dev']);
     grunt.registerTask('test', ['jshint', 'karma:test']);
+    grunt.registerTask('testContinuesly', ['jshint', 'karma:testContinuesly']);
     grunt.registerTask('teamcityTest', ['jshint', 'karma:teamcity']);
     grunt.registerTask('dist', ['clean', 'useminPrepare', 'concat', 'copy', 'requirejs', 'uglify', 'cssmin', 'usemin', 'processhtml']);
     grunt.registerTask('initEnv', ['bower', 'test', 'dist']);
